@@ -1,0 +1,13 @@
+Bootstrap: docker
+
+From: tensorflow/tensorflow:1.13.1-gpu-py3
+
+%post
+  # default mount paths, files
+  mkdir /scratch /data /secure /seq
+  
+  # install other packages you want
+  pip install --no-cache-dir seaborn
+  
+  # see https://github.com/sylabs/singularity/issues/1182#issuecomment-381796545
+  touch /usr/bin/nvidia-smi
